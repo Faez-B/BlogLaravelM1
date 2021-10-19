@@ -23,4 +23,4 @@ Route::get('/', function() {
     phpinfo();
 });
 
-Route::get('/test', [PostController::class, 'test']);
+Route::get('/posts', [PostController::class, 'index']);
