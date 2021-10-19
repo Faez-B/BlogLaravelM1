@@ -6,12 +6,17 @@
         Ma liste d'articles
     </h1>
 
+    <a href="/posts/ajouter">
+        Ajouter un post
+    </a>
     <ul>
         @foreach ($posts as $post)
             <li>
-                <h2>
-                    {{ $post->title }}
-                </h2>
+                <a href="/posts/details/{{ $post->id }}">
+                    <h2>
+                        {{ $post->title }}
+                    </h2>
+                </a>
 
                 <p>
                     {{ $post->extrait }}
