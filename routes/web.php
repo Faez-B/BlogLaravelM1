@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test/{name}', function(\Illuminate\Http\Request $request, $name){
+    dd($request);
+});
