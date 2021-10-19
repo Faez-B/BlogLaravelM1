@@ -5,7 +5,22 @@
 @endsection
 
 @section('content')
-    <h1>
+
+    {{-- Si loading vaut true  --}}
+    @if ($loading)
+        <p>
+            Chargement...
+        </p>
+        
+
+    {{-- Sinon --}}
+    @else
+        <p>
+            Fail
+        </p>
+        
+    @endif
+    {{-- <h1>
         Mon blog
-    </h1>
+    </h1> --}}
 @endsection
