@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test/{name}', function(\Illuminate\Http\Request $request, $name){
-    dd($request);
-});
+Route::get('/test', [PostController::class, 'test']);
