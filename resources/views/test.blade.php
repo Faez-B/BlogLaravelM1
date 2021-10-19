@@ -15,12 +15,16 @@
 
     {{-- Sinon --}}
     @else
-        <p>
-            Fail
-        </p>
+        <h1>
+            Mon blog
+        </h1>
         
+        <ul>
+            @foreach ($posts as $post)
+                <li>
+                    {{ $post }}
+                </li>   
+            @endforeach
+        </ul>
     @endif
-    {{-- <h1>
-        Mon blog
-    </h1> --}}
 @endsection

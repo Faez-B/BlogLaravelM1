@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="css/app.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css">
+
 
         <script src="js/app.js"></script>
         <script src="js/main.js"></script>
