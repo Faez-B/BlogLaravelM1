@@ -27,5 +27,8 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/details/{id?}', [PostController::class, 'details']);
 
-Route::get('/posts/ajouter', [PostController::class, 'ajouter']);
+Route::get('/posts/ajouter',function(){
+    return view('posts.ajout');
+});
 
+Route::post('/posts/ajouter',[PostController::class, 'ajouter']);

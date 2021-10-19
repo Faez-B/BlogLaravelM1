@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="ajout" style="max-width: 900px; margin: 0 auto;">
-        <form method="POST" action="/posts/ajouter">
+    <div class="list" style="max-width: 900px; margin: 0 auto;">
+        <form method="post" action="ajouter">
             @csrf
 
             <label for="titre">Titre : </label>
@@ -17,7 +17,17 @@
 
             <label for="desc">Description : </label>
             <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+
+            <br>
+            <br>
+
+            <input type="submit" value="Créer le post">
         </form>
 
+        <a href="/posts">
+            <button>
+                Annuler
+            </button>
+        </a>
     </div>
 @endsection

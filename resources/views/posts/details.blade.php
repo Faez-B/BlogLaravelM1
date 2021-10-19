@@ -9,5 +9,11 @@
         <p>
             {{ $post->description }}
         </p>
+
+        <a href="/posts">
+            <button>
+                Go back
+            </button>
+        </a>
     </div>
 @endsection
