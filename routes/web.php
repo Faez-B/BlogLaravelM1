@@ -44,3 +44,4 @@ Route::post('/posts/ajouter',[PostController::class, 'store'])->name('postStore'
 Route::put('posts/{id}', [PostController::class, 'update'])->name('postUpdate');
 
 Route::delete('posts/{id}', [PostController::class, 'delete'])->name('postDelete');
+Route::put('posts/{id}/picture', [PostController::class, 'updatePicture'])->name('postUpdatePicture');
