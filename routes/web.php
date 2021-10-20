@@ -39,4 +39,7 @@ Route::get('/posts/details/{id?}', [PostController::class, 'details'])->name('po
 Route::get('/posts/ajouter',[PostController::class, 'ajouter'])->name('postAdd');
 Route::post('/posts/ajouter',[PostController::class, 'store'])->name('postStore');
 
+
 Route::get('/posts/edit/{id}',[PostController::class, 'update'])->name('postUpdate');
+
+Route::delete('posts/{id}', [PostController::class, 'delete'])->name('postDelete');

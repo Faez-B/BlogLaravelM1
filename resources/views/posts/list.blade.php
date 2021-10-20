@@ -22,6 +22,16 @@
                     <p>
                         {{ $post->extrait }}
                     </p>
+
+                    <form action="{{ route('postDelete', $post->id) }}" method="post">
+                        @csrf
+                        @method("DELETE")
+                        
+                        <button class="btn btn-danger btn-sm">
+                            Supprimer
+                        </button>
+                    
+                    </form>
                 </li>
             @endforeach
         </ul>

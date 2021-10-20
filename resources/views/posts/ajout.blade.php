@@ -26,17 +26,19 @@
 
             <div class="form-group">
                 <label for="titre">Titre : </label>
-                <input type="text" name="titre" id="titre" required class="form-control">
+                <input type="text" name="titre" id="titre" required class="form-control" value="{{ old('titre') }}">
             </div>
 
             <div class="form-group">
                 <label for="extrait">Extrait : </label>
-                <input type="text" name="extrait" id="extrait" required class="form-control">
+                <input type="text" name="extrait" id="extrait" required class="form-control" value="{{ old('extrait') }}">
             </div>
 
             <div class="form-group">
                 <label for="desc">Description : </label>
-                <textarea name="desc" id="desc" cols="30" rows="10" required class="form-control"></textarea>
+                <textarea name="desc" id="desc" cols="30" rows="10" required class="form-control">
+                    {{ old('desc') }}
+                </textarea>
             </div>
 
             <input type="submit" value="Créer le post" class="btn btn-primary">
