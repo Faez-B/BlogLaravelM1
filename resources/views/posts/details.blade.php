@@ -2,18 +2,24 @@
 
 @section('content')
     <div class="details" style="max-width:800px; margin:0 auto;">
-        <h2>
+        <h1>
             {{ $post->title }}
-        </h2>
+        </h1>
 
         <p>
             {{ $post->description }}
         </p>
 
-        <a href="/posts">
-            <button>
-                Go back
-            </button>
+        <p>
+            Créé le {{ $post->created_at }}
+        </p>
+
+        <a href="{{ route('postsList') }}" class="btn btn-primary">
+            Go back
+        </a>
+
+        <a href="{{ route('postUpdate', $post->id) }}" class="btn btn-primary">
+            Modifier
         </a>
     </div>
 @endsection

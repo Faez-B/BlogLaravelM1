@@ -15,6 +15,10 @@ use App\Http\Controllers\PostController;
 |
 */
 
+//////
+//  L'ordre des routes est IMPORTANTE (routes avec id vers la fin)
+////
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -23,12 +27,16 @@ Route::get('/', function() {
     phpinfo();
 });
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('postsList');
 
-Route::get('/posts/details/{id?}', [PostController::class, 'details']);
+Route::get('/posts/details/{id?}', [PostController::class, 'details'])->name('postDetails');
 
-Route::get('/posts/ajouter',function(){
-    return view('posts.ajout');
-});
+// Route::get('/posts/ajouter',function(){
+//     return view('posts.ajout');
+// });
+// Route::post('/posts/ajouter',[PostController::class, 'ajouter'])->name('postAdd');
 
-Route::post('/posts/ajouter',[PostController::class, 'ajouter']);
+Route::get('/posts/ajouter',[PostController::class, 'ajouter'])->name('postAdd');
+Route::post('/posts/ajouter',[PostController::class, 'store'])->name('postStore');
+
+Route::get('/posts/edit/{id}',[PostController::class, 'update'])->name('postUpdate');
