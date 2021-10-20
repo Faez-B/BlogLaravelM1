@@ -19,7 +19,8 @@
             @endforeach
         @endif
 
-        <form method="post" action="{{ route('postAdd') }}">
+        <form method="post" action="{{ route('postAdd') }}" 
+            enctype="multipart/form-data">
         {{-- <form method="post" action="{{ route('postStore') }}"> --}}
             
             @csrf
@@ -39,6 +40,12 @@
                 <textarea name="desc" id="desc" cols="30" rows="10" required class="form-control">
                     {{ old('desc') }}
                 </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="picture">Image</label>
+
+                <input type="file" name="picture" id="picture" class="form-control" required accept="image/png,image/jpeg,image/jpg">
             </div>
 
             <input type="submit" value="Créer le post" class="btn btn-primary">
