@@ -26,7 +26,8 @@ class PostController extends Controller
 
     public function store(PostStoreRequest $request)
     {
-        $params = $request->all();
+        // $params = $request->all();
+        $params = $request->validated();
         Post::create([
             'title' => $params['titre'],
             'description' => $params['desc'],
@@ -81,7 +82,7 @@ class PostController extends Controller
         // }
 
         $post = Post::find($id);
-        $params = $request->all();
+        $params = $request->validated();
 
         $post = $post->update([
             "title" => $params['titre'],
@@ -89,7 +90,7 @@ class PostController extends Controller
             "description" => $params['desc'],
 
         ]);
-        return view('posts.edit')
-                ->with('post', $post);
+
+        return redirect()->route('postsList');
     }
 }

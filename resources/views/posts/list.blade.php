@@ -30,7 +30,6 @@
                         <button class="btn btn-danger btn-sm">
                             Supprimer
                         </button>
-                    
                     </form>
                 </li>
             @endforeach
