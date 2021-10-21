@@ -32,6 +32,14 @@
             Détails de : {{ $post->title }}
         </h1>
 
+        <p class="card-text">
+            @foreach ($post->categories as $category)
+                <span class="btn btn-warning">
+                    {{ $category->name }}
+                </span>
+            @endforeach
+        </p>
+
         <div class="row">
             <div class="col-md-6">
                 <form method="post" action="{{ route('postUpdate', $post->id) }}">
@@ -105,7 +113,7 @@
                 </div>
             @endforeach
         @else
-            <p>
+            <p style="color: gray;">
                 Aucun commentaire
             </p>
         @endif

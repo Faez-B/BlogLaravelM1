@@ -27,4 +27,9 @@ class Post extends Model
         $count = sizeof($this->comments);
         return $count;
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, "posts_categories", "post", "category");
+    }
 }

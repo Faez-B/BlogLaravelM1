@@ -24,7 +24,11 @@
                                 {{ $post->extrait }}
                             </p>
 
-                            <p class="card-text">
+                            <p class="card-text"
+                                @if ($post->countComments() == 0)
+                                    style="color: gray;"
+                                @endif >
+                                
                                 @if ($post->countComments() > 0)
                                     {{ $post->countComments() }} 
                                     @if ($post->countComments() == 1)
@@ -35,6 +39,14 @@
                                 @else
                                     Aucun commentaire
                                 @endif
+                            </p>
+
+                            <p class="card-text">
+                                @foreach ($post->categories as $category)
+                                    <span class="btn btn-warning">
+                                        {{ $category->name }}
+                                    </span>
+                                @endforeach
                             </p>
 
                             <div class="btn-group">
