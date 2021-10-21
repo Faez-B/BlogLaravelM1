@@ -26,7 +26,12 @@
 
                             <p class="card-text">
                                 @if ($post->countComments() > 0)
-                                    {{ $post->countComments() }} commentaire(s)                                    
+                                    {{ $post->countComments() }} 
+                                    @if ($post->countComments() == 1)
+                                        commentaire
+                                    @else
+                                        commentaires
+                                    @endif
                                 @else
                                     Aucun commentaire
                                 @endif

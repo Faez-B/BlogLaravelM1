@@ -91,9 +91,18 @@
             {{-- On utilise bien ici un attribut comments et pas la fonction comments() du modele Post car ça retourne une relation et
                 car laravel transforme la focntion du modele en attribut --}}
             @foreach ($post->comments as $comment)
-                <p>
-                    {{ $comment->content }}
-                </p>
+                <div>
+                    <p style="display: inline-block;">
+                        {{ $comment->content }}
+                    </p>
+
+                    <form action="{{ route('commentDelete', $comment->id) }}" method="post" style="display: inline-block;">
+                        @csrf
+                        @method("DELETE")
+
+                        <button type="submit" class="btn btn-danger">Supprimer le commentaire</button>
+                    </form>
+                </div>
             @endforeach
         @else
             <p>

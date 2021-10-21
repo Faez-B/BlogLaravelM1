@@ -48,7 +48,9 @@ Route::get('posts/{id}', [PostController::class, 'details'])->name('postDetails'
 
 Route::put('posts/{id}', [PostController::class, 'update'])->name('postUpdate');
 
-// Route::post('posts/{id}', [PostController::class, 'addComment'])->name('addComment');
-Route::post('/commentaires/{post_id}', [CommentController::class, 'store'])->name('commentAdd');
 
 Route::put('posts/{id}/picture', [PostController::class, 'updatePicture'])->name('postUpdatePicture');
+
+// Route::post('posts/{id}', [PostController::class, 'addComment'])->name('addComment');
+Route::post('/commentaires/{post_id}', [CommentController::class, 'store'])->name('commentAdd');
+Route::delete('/commentaires/{id}', [CommentController::class, 'delete'])->name('commentDelete');
