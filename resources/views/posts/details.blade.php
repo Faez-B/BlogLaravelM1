@@ -51,7 +51,7 @@
         
                     <div class="form-group">
                         <label for="desc">Description : </label>
-                        <textarea name="desc" id="desc" cols="30" rows="10" required class="form-control">
+                        <textarea name="desc" id="desc" rows="10" required class="form-control">
                             {{ old('desc', $post->description) }}
                         </textarea>
                     </div>
@@ -63,6 +63,9 @@
             </div>
 
             <div class="col-md-6">
+                {{-- DANS asset TOUJOURS METTRE DES GUILLEMETS (PAS DE SIMPLE QUOTE) --}}
+                <img src="{{ asset("storage/$post->picture") }}" alt="">
+                
                 <form action="{{ route('postUpdatePicture', $post->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
