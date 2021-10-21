@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -54,3 +55,7 @@ Route::put('posts/{id}/picture', [PostController::class, 'updatePicture'])->name
 // Route::post('posts/{id}', [PostController::class, 'addComment'])->name('addComment');
 Route::post('/commentaires/{post_id}', [CommentController::class, 'store'])->name('commentAdd');
 Route::delete('/commentaires/{id}', [CommentController::class, 'delete'])->name('commentDelete');
+
+Route::get("categories", [CategoryController::class, 'index'])->name("categoryList");
+Route::get("categories/ajouter", [CategoryController::class, 'add'])->name("categoryAdd");
+Route::post("categories/ajouter", [CategoryController::class, 'store'])->name("categoryStore");

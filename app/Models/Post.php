@@ -30,6 +30,13 @@ class Post extends Model
 
     public function categories()
     {
+        // ManyToMany => utilisation de la fonction belongsToMany
+        /* Paramètres : 
+        * Modèle auxquel le modèle actuel est lié
+        * La table pivot qui fait le lien entre ces deux modèles
+        * La clé de ce modèle dans la table pivot
+        * La clé de l'autre modèle dans la table pivot
+        */
         return $this->belongsToMany(Category::class, "posts_categories", "post", "category");
     }
 }

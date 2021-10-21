@@ -43,7 +43,7 @@
 
                             <p class="card-text">
                                 @foreach ($post->categories as $category)
-                                    <span class="btn btn-warning">
+                                    <span class="btn btn-warning" style="cursor: initial;">
                                         {{ $category->name }}
                                     </span>
                                 @endforeach

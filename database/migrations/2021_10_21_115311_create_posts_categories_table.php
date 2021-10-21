@@ -15,8 +15,12 @@ class CreatePostsCategoriesTable extends Migration
     {
         Schema::create('posts_categories', function (Blueprint $table) {
             $table->id();
+
+            // Création des clés étrangères (toujours avant les règles)
             $table->unsignedBigInteger('post')->index();
             $table->unsignedBigInteger('category')->index();
+
+            // Règles pour les clés étrangères
             $table->foreign("post")
                     ->references('id')
                     ->on("posts")
