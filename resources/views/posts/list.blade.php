@@ -24,6 +24,10 @@
                                 {{ $post->extrait }}
                             </p>
 
+                            <p class="card-text">
+                                {{ $post->countComments() }} commentaire(s)
+                            </p>
+
                             <div class="btn-group">
                                 <a href="{{ route('postDetails', $post->id) }}" class="btn btn-primary btn-lg">
                                     Détails

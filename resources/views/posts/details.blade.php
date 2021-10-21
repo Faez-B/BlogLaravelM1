@@ -65,7 +65,7 @@
             <div class="col-md-6">
                 {{-- DANS asset TOUJOURS METTRE DES GUILLEMETS (PAS DE SIMPLE QUOTE) --}}
                 <img src="{{ asset("storage/$post->picture") }}" alt="">
-                
+
                 <form action="{{ route('postUpdatePicture', $post->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -82,5 +82,20 @@
                 </form>
             </div>
         </div>
+
+        <h2 class="mt-5">
+            Commentaires
+        </h2>
+
+        {{-- On utilise bien ici un attribut comments et pas la fonction comments() du modele Post car ça retourne une relation et
+            car laravel transforme la focntion du modele en attribut --}}
+        @foreach ($post->comments as $comment)
+            <p>
+                {{ $comment->content }}
+            </p>
+        @endforeach
+
+        <form action="{{ route('') }}" method="post"></form>
+
     </div>
 @endsection
