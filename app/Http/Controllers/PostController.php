@@ -17,7 +17,7 @@ class PostController extends Controller
         return view('posts.list', compact('posts'));
     }
 
-    public function details($id = null){
+    public function details($id){
         $post = Post::find($id);
         return view("posts.details", compact(['id', 'post']));
     }

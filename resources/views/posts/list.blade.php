@@ -25,7 +25,11 @@
                             </p>
 
                             <p class="card-text">
-                                {{ $post->countComments() }} commentaire(s)
+                                @if ($post->countComments() > 0)
+                                    {{ $post->countComments() }} commentaire(s)                                    
+                                @else
+                                    Aucun commentaire
+                                @endif
                             </p>
 
                             <div class="btn-group">
@@ -33,7 +37,7 @@
                                     Détails
                                 </a>
 
-                                <form action="{{ route('postDelete', $post->id) }}" method="post">
+                                <form method="post" action="{{ route('postDelete', $post->id) }}">
                                     @csrf
                                     @method("DELETE")
                                     

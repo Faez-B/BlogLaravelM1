@@ -87,15 +87,34 @@
             Commentaires
         </h2>
 
-        {{-- On utilise bien ici un attribut comments et pas la fonction comments() du modele Post car ça retourne une relation et
-            car laravel transforme la focntion du modele en attribut --}}
-        @foreach ($post->comments as $comment)
+        @if ($post->countComments() > 0)
+            {{-- On utilise bien ici un attribut comments et pas la fonction comments() du modele Post car ça retourne une relation et
+                car laravel transforme la focntion du modele en attribut --}}
+            @foreach ($post->comments as $comment)
+                <p>
+                    {{ $comment->content }}
+                </p>
+            @endforeach
+        @else
             <p>
-                {{ $comment->content }}
+                Aucun commentaire
             </p>
-        @endforeach
+        @endif
 
-        <form action="{{ route('') }}" method="post"></form>
+        <form action="{{ route('commentAdd', $post->id) }}" method="post">
+            @csrf
+
+            <div class="form-group">
+                <label for="content" style="font-weight:bold;">
+                    Ajouter un commentaire
+                </label>
+                <textarea name="content" id="content" class="form-control" rows="3">
+                    {{ old('content') }}
+                </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ajouter le commentaire</button>
+        </form>
 
     </div>
 @endsection

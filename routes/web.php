@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -29,7 +30,7 @@ Route::get('/', function() {
 
 Route::get('/posts', [PostController::class, 'index'])->name('postsList');
 
-Route::get('/posts/details/{id?}', [PostController::class, 'details'])->name('postDetails');
+// Route::get('/posts/details/{id}', [PostController::class, 'details'])->name('postDetails');
 
 // Route::get('/posts/ajouter',function(){
 //     return view('posts.ajout');
@@ -39,9 +40,15 @@ Route::get('/posts/details/{id?}', [PostController::class, 'details'])->name('po
 Route::get('/posts/ajouter',[PostController::class, 'ajouter'])->name('postAdd');
 Route::post('/posts/ajouter',[PostController::class, 'store'])->name('postStore');
 
-
 // Route::get('/posts/edit/{id}',[PostController::class, 'update'])->name('postUpdate');
-Route::put('posts/{id}', [PostController::class, 'update'])->name('postUpdate');
 
 Route::delete('posts/{id}', [PostController::class, 'delete'])->name('postDelete');
+
+Route::get('posts/{id}', [PostController::class, 'details'])->name('postDetails');
+
+Route::put('posts/{id}', [PostController::class, 'update'])->name('postUpdate');
+
+// Route::post('posts/{id}', [PostController::class, 'addComment'])->name('addComment');
+Route::post('/commentaires/{post_id}', [CommentController::class, 'store'])->name('commentAdd');
+
 Route::put('posts/{id}/picture', [PostController::class, 'updatePicture'])->name('postUpdatePicture');
